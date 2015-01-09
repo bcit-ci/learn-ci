@@ -20,6 +20,9 @@ Course Changes
 - removed lolcats references in lesson 1a
 - split lesson 1a into in-class only (00) and online lessons (01a)
 - revamped the CI slide in lesson 1a, to make the intent clearer
+- added better explanation in tutorial 1a for configuration folders
+- added linking ability between slides (eg for agenda)
+- started lesson 2 for testing this
 
 2015.01.08
 - corrections to lab 1

@@ -43,6 +43,7 @@
  *
  * Model for a course, with data derived from data/course.xml
  */
+//TODO Look at splitting this into additional models, eg Activity, Organizer, Materials
 class Course extends CI_Model {
 
     protected $xml; // root element of our data structure
@@ -208,6 +209,32 @@ class Course extends CI_Model {
 
 	// we either didn't find our target, or there is nothing after it
 	return null;
+    }
+
+    /**
+     * Build the internal tags for an activity.
+     * Return them as an associative array of tag=>slide# pairs
+     */
+    public function tags($activity)
+    {
+	$number = 0; // slide # we are at
+	$tags = array();
+
+	$filename = DATAPATH . $activity->category . 's/' . $activity->name . '.xml';
+	if (file_exists($filename))
+	{
+	    $xml = simplexml_load_file($filename);
+	    foreach ($xml->slide as $slide)
+	    {
+		$number++;
+		if (isset($slide['tag']))
+		{
+		    $tags[(string) $slide['tag']] = 'slide' . $number;
+		}
+	    }
+	}
+
+	return $tags;
     }
 
 }

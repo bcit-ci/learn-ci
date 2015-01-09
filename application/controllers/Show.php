@@ -165,11 +165,13 @@ class Show extends Application {
     /**
      * Render an activity XML document as a slideshow
      */
+    //TODO XML stuff should be in model
     private function slideshow($activity)
     {
 	$course = $this->course->metadata();
 	$this->data = array_merge($this->data, (array) $course);
 	$this->data = array_merge($this->data, (array) $activity);
+	$this->data = array_merge($this->data, $this->course->tags($activity));
 
 	// figure out the followup
 	$following = $this->course->followup($activity);
@@ -190,10 +192,14 @@ class Show extends Application {
 	    $xml = simplexml_load_file($filename);
 	    foreach ($xml->slide as $slide)
 	    {
+		// pre-parsing
+		$body = $this->parser->parse_string((string) $slide->asXML(), $this->data, true);
+		
+		// slide parsing
 		$parms = array(
 		    'title' => (string) $slide['title'],
 		    'layout' => (string) $slide['layout'],
-		    'body' => (string) $slide->asXML(),
+		    'body' => $body,
 		);
 		$result .= $this->parser->parse('show/_slide', $parms, true);
 	    }

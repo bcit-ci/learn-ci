@@ -21,12 +21,12 @@ Webapp Suggestions
 Course Issues
 *************
 
-- Need Mac OSX instructions
 - Need assignment 1
-- tutorial 1a: The directory that windows installs httpd.conf to is C:\xampp\apache\conf, 
-    as far as i could see you didn't have a slide that explicitly listed this 
-    (I only saw a slide for linux: /etc/httpd/conf)
-- need a way to identify and navigate between slides
+- Need lesson 2
+- Need tutorial 2a
+- Need tutorial 2b
+- Need lab 2
+- Need Mac OSX instructions
 
 ******************
 Course Suggestions
