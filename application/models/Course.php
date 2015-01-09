@@ -160,13 +160,53 @@ class Course extends CI_Model {
 			// this is the one
 			$activity->type = (string) $one['type'];
 			$activity->title = (string) $one;
-			$activity->duedate = (string)$one['duedate'];
+			$activity->duedate = (string) $one['duedate'];
 			$activity->link = (string) $one['link'];
 			return $activity;
 		    }
 		}
 	    }
 	}
+	return null;
+    }
+
+    /**
+     * Find the followup activity for another, according to the organizer
+     */
+    public function followup($activity)
+    {
+	$target = $activity->name;  // what we are looking for
+	$thereyet = false;     // have we found it?
+	// iterate through the organizer
+	$xml = simplexml_load_file(DATAPATH . 'organizer.xml');
+	foreach ($xml->week as $week)
+	{
+	    foreach ($week->children() as $one)
+	    {
+		if (isset($one['name']))
+		{
+		    // this is *an* activity
+		    if ($thereyet)
+		    {
+			// this *is* the next activity
+			$follower = new stdClass();
+			$follower->category = $one->getName();
+			$follower->name = (string) $one['name'];
+			$follower->type = (string) $one['type'];
+			$follower->title = (string) $one;
+			$follower->duedate = (string) $one['duedate'];
+			$follower->link = (string) $one['link'];
+			return $follower;
+		    } elseif ($target == (string) $one['name'])
+		    {
+			// we have found our target. now look for the next activity
+			$thereyet = true;
+		    }
+		}
+	    }
+	}
+
+	// we either didn't find our target, or there is nothing after it
 	return null;
     }
 

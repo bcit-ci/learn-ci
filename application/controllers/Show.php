@@ -171,9 +171,17 @@ class Show extends Application {
 	$this->data = array_merge($this->data, (array) $course);
 	$this->data = array_merge($this->data, (array) $activity);
 
+	// figure out the followup
+	$following = $this->course->followup($activity);
+	if ($following == null)
+	    $this->data['followup'] = 'There is nothing further in this course';
+	else
+	    $this->data['followup'] = $this->parser->parse('show/_activity', (array) $following, true);
+
+	// start this slideshow with a title slide
 	$this->data['intro_slide'] = $this->parser->parse('show/_title_slide', $this->data, true);
 
-	// Now through the slides
+	// Now generate the "real" slides
 	$result = '';
 
 	$filename = DATAPATH . $activity->category . 's/' . $activity->name . '.xml';
