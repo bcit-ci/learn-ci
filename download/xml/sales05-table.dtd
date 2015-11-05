@@ -1,0 +1,25 @@
+<!--
+DTD for sales05-table.xml
+
+The data is like a single table in a relational database.
+
+COMP4711 Fall 2011
+Lab solution
+-->
+
+<!-- The root element contains multiple sold elements, each of which is like a 
+cell in a worksheet. Each such document is for a specific year.
+ -->
+<!ELEMENT sales (sold)+>
+<!ATTLIST sales
+    year (2009|2010|2011|2012) #REQUIRED
+  >
+
+<!--- A sold element contains the number of vehicles sold
+of a given type in a single country, during a specific quarter -->
+<!ELEMENT sold (#PCDATA)>
+<!ATTLIST sold
+    country (canada|mexico|usa) #REQUIRED
+    type (car|light|heavy) #REQUIRED
+    quarter (1|2|3|4) #REQUIRED
+  >

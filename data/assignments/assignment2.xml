@@ -13,7 +13,7 @@ Assignment 2 - Functional Webapp
             setting the stage for the game predictions.</p>
         <p>User authentication is not expected.</p>
         <p>Your assignment 1 project will need to have its database
-            realized (not just mock data) and its usecases implemented
+            realized (not just mock data) and some of its usecases implemented
             (not just mock views).</p> 
         <p>This may sound suspiciously similar to labs #3-5! Hmmmmm.</p> 
     </slide>
@@ -47,7 +47,6 @@ Assignment 2 - Functional Webapp
     <slide title="Submission" layout="normal">
         <p>When you are done, submit a readme or a comment to the D2L assignment dropbox, 
             with a link to your github repository.</p>
-        <p>Distance students: send me an email with a link to your github repository.</p>
         <p>Due: Sunday Nov 15, 23:59 PST</p>
     </slide>
 
@@ -68,12 +67,12 @@ Assignment 2 - Functional Webapp
             repo.</p>
         <p>An easy way to get this script is to export your database using PHPMyAdmin,
             checking the "gzipped" format to avoid potential hiccups with
-            special characters in any of your table rows.</p>
-        <p>In your SQL script, drop all tables you need before recreating them.
+            special characters in any of your table rows.
+            In your SQL script, drop all tables you need before recreating them.
             Do not attempt to create a database, or to tie your script to a specific database.</p>
-        <p>My testing assumes a "COMP4711" database, with default user "root" and no password.</p>
+        <p>My testing assumes a "COMP4711" database, with default user "root" and no password.
             
-        <p>You can tailor *your* database config by having your own application/config/development
+            You can tailor *your* database config by having your own application/config/development
             subfolder on your local system, with over-riding database configuration
             settings. You would
             then "git ignore" that folder, so that it is not part of your repo, 
@@ -101,11 +100,11 @@ Assignment 2 - Functional Webapp
             of the gradable items:        </p>
         <div class="left">
             <ul>
-                <li>Models, bound to DB tables (2)</li>
-                <li>Homepage enhancements (2)</li>
-                <li>Roster presentation (3)</li>
-                <li>Player CRUD (3)</li>
-                <li>League presentation (3)</li>
+                <li>Models, bound to DB tables (3)</li>
+                <li>Homepage enhancements (-)</li>
+                <li>Roster presentation (5)</li>
+                <li>Player CRUD (5)</li>
+                <li>League presentation (-)</li>
             </ul>
         </div>
         <div class="right">
@@ -118,13 +117,17 @@ Assignment 2 - Functional Webapp
     </slide>
 
     <slide title="Models" layout="normal">
-        <p>Your webapp will have at least 3 tables in its database, for application
-            data. This does not count a session table, or any user/login table(s),
+        <p>Your webapp will have at least 2 tables in its database, for application
+            data - one for players and one for league teams. 
+            This does not count a session table, or any user/login table(s),
             if you are using those.</p>
         <p>I expect each table to have its own model, and you are welcome
             to use the base models provided in earlier labs as a starting point.
             Some of you have provided appropriate mock data, which can just be implemented
             as a table/model. Others will need to step up their game.</p>
+    </slide>
+
+    <slide title="Model Methods" layout="normal">
         <p>Each model should have additional methods, beyond CRUD, to
             support data extraction or manipulation for your usecases.
             This means that data filtering should be done in the models,
@@ -149,47 +152,53 @@ Assignment 2 - Functional Webapp
             You are welcome to include other data you have provided for so far.
         </p>
         <p>
-            <strong>History</strong> - You need to model games history, so that you can
+            <strong>History</strong> - You will need to model games history, so that you can
             predict the outcome of a game between your team and another.
-            The history details will come from a service setup for assignment 3,
-            that you will connect to using XML-RPC.</p>
+            Don't worry about this until assignment 3, however.</p>
     </slide>
+    <!--
+        <slide title="Useful Prediction Data" layout="normal">
+            <p>
+                If you look at nhl.com, you will notice that each game has an
+                identifier, yyyymmddnn, where "nn" is one of the games on a given day.</p>
+            <p>If you look at the standings page there, you will notive a "net points"
+                column, the difference between the points a team scored and the points scored
+                against them; this is the basis for standings calculations.</p>
+            <p>There are also some other columns, that you are welcome to include in
+                your model but not required to (home vs away performance, performance
+                inside a team's conference, current streak, and last 5 games summary).
+            </p>
+        </slide>
+        <slide title="Final Model Thoughts" layout="normal">
+            <p>
+                You may want to provide for a configuration table of sorts,
+                or perhaps for configuration settings...</p>
+            <ul>
+                <li>the last game # you retrieved</li>
+                <li>the URL of the game scores service</li>
+            </ul>
+            <p>If you have nothing but time on your hands, you might even
+                store predictions and compare them to actual games once
+                played, with the intent of somehow profiting from
+                this information to improve your predictions.
+                On the other hand, this is only for fun, and not for profit,
+                and I suspect you will have better uses for your time!</p>
+        </slide>
 
-    <slide title="Useful Prediction Data" layout="normal">
-        <p>
-            If you look at nhl.com, you will notice that each game has an
-            identifier, yyyymmddnn, where "nn" is one of the games on a given day.</p>
-        <p>If you look at the standings page there, you will notive a "net points"
-            column, the difference between the points a team scored and the points scored
-            against them; this is the basis for standings calculations.</p>
-        <p>There are also some other columns, that you are welcome to include in
-            your model but not required to (home vs away performance, performance
-            inside a team's conference, current streak, and last 5 games summary).
-        </p>
-    </slide>
-
-   <slide title="Final Model Thoughts" layout="normal">
-        <p>
-            You may want to provide for a configuration table of sorts,
-        or perhaps for configuration settings...</p>
-        <ul>
-            <li>the last game # you retrieved</li>
-            <li>the URL of the game scores service</li>
-        </ul>
-        <p>If you have nothing but time on your hands, you might even
-        store predictions and compare them to actual games once
-        played, with the intent of somehow profiting from
-        this information to improve your predictions.
-        On the other hand, this is only for fun, and not for profit,
-        and I suspect you will have better uses for your time!</p>
-    </slide>
 
     <slide title="Homepage Enhancements" layout="normal">
-        <p>Mock predictor; comboc box to select opponent, randomly
-        calculated prediction shown.</p>
+        <p>Provide a <strong>mock predictor</strong> on your homepage.</p>
+        <p>Distinguish it from the rest of the hoimepage content by putting
+            it inside a well or a fieldset.</p>
+    <p>It should have a combo box to select your opponent, chosen
+        from all of the *other* teams in the league.</p>
+        <p>This can be a regular form, with a conventional "submit" button,
+        to trigger redrawing the page, or you can use an A</p>
+        <p>The predicted outcome (points for &amp; agaonst, can be randomly
+            calculated chosen.</p>
                 
     </slide>
-
+    -->
     <slide title="Roster Presentation" layout="normal">
         <p>Presented 12 at a time, with pagination.</p>
         <p>Flexible order: name, jersey, position.</p>
@@ -206,10 +215,16 @@ Assignment 2 - Functional Webapp
     </slide>
 
     <slide title="League Presentation" layout="normal">
-        <p>Layout by league, conference or division.</p>
-        <p>Ordered by city, name, or standing</p>
+        <p>You do not need to make changes to your league presentation
+            as part of this assignment. I expect that your
+            earlier work will show all the league teams.</p>
     </slide>
-
+    <!--
+        <slide title="League Presentation" layout="normal">
+            <p>Layout by league, conference or division.</p>
+            <p>Ordered by city, name, or standing</p>
+        </slide>
+    -->
     <slide title="Works properly?" layout="normal">
         <p>This basically refers to your webapp working as a webapp should.</p>
         <p>Things that would cost marks here include broken hyperlinks,
@@ -221,6 +236,12 @@ Assignment 2 - Functional Webapp
         <p>Your webapp pieces should look and behave seamlessly.</p>
         <p>The different pages should have similar or compatible
             styles. Nothing should look like a ransom note!</p>
+        <p>A note about style - some of the first assignments
+            looked like repurposed image galleries, or repurposed
+            quotation presenters. If this applies to your project,
+            you really need to step up your game and make your
+            webapp like like a fansite, rather than just give lip service
+            to the task at hand!</p>
     </slide>
 
     <slide title="Comments &amp; programming style" layout="normal">

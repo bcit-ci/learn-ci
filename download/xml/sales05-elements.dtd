@@ -1,0 +1,39 @@
+<!--
+DTD for sales05-elements.xml.
+The data is more element centric than the others
+
+COMP4711 Fall 2011
+Lab solution
+-->
+
+<!-- The root element contains a year element, and then multiple sorce elements,
+each of which models data from a country.
+The data comes from Industry Canada, and is for 2010.
+There could be more data, and past data, so it makes sense to constrain 
+the year attribute.
+ -->
+<!ELEMENT sales (year,source+)>
+
+<!--- year element holds the year that this data set pertains to -->
+<!ELEMENT year (#PCDATA)>
+
+<!--- A source element contains a country element (where the data came from),
+and then multiple vehicles elements, one per type of vehicle -->
+<!ELEMENT source (country,vehicles+)>
+
+<!--- Name of the country the data is from -->
+<!ELEMENT country (#PCDATA)>
+
+<!--- A type element (kind of vehicle), followed by a number
+of sold elements, one per quarter. -->
+<!ELEMENT vehicles (type,sold+)>
+
+<!--- Vehicle type.
+Note that we cannot constrain its value. -->
+<!ELEMENT type (#PCDATA)>
+
+<!--- Sales for a quarter -->
+<!ELEMENT sold (#PCDATA)>
+<!ATTLIST sold
+    quarter (1|2|3|4) #REQUIRED
+  >

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sales SYSTEM "sales05-source.dtd">
+<!--
+    Document   : sales05-source.xml
+    Created on : October 11, 2011, 11:18 PM
+    Author     : jim
+    Description:
+        North America Sales for 2010, modeled by source.
+        This is one perspective, of many possible.
+-->
+
+<sales year="2010">
+    <source country="canada">
+        <vehicles type="car">
+            <sold quarter="1">148111</sold>    
+            <sold quarter="2">212570</sold>    
+            <sold quarter="3">183850</sold>    
+            <sold quarter="4">149818</sold>    
+        </vehicles>
+        <vehicles type="light">
+            <sold quarter="1">178831</sold>    
+            <sold quarter="2">245813</sold>    
+            <sold quarter="3">235473</sold>    
+            <sold quarter="4">200234</sold>    
+        </vehicles>
+        <vehicles type="heavy">
+            <sold quarter="1">5867</sold>    
+            <sold quarter="2">7462</sold>    
+            <sold quarter="3">7343</sold>    
+            <sold quarter="4">8016</sold>    
+        </vehicles>
+    </source>
+    <source country="mexico">
+        <vehicles type="car">
+            <sold quarter="1">114361</sold>    
+            <sold quarter="2">110277</sold>    
+            <sold quarter="3">119881</sold>    
+            <sold quarter="4">155048</sold>    
+        </vehicles>
+        <vehicles type="light">
+            <sold quarter="1">74033</sold>    
+            <sold quarter="2">70960</sold>    
+            <sold quarter="3">74835</sold>    
+            <sold quarter="4">99109</sold>    
+        </vehicles>
+        <vehicles type="heavy">
+            <sold quarter="1">5129</sold>    
+            <sold quarter="2">7067</sold>    
+            <sold quarter="3">7772</sold>    
+            <sold quarter="4">8409</sold>    
+        </vehicles>
+    </source>
+    <source country="usa">
+        <vehicles type="car">
+            <sold quarter="1">1282671</sold>    
+            <sold quarter="2">1542192</sold>    
+            <sold quarter="3">1468936</sold>    
+            <sold quarter="4">1341634</sold>    
+        </vehicles>
+        <vehicles type="light">
+            <sold quarter="1">1255913</sold>    
+            <sold quarter="2">1520199</sold>    
+            <sold quarter="3">1528261</sold>    
+            <sold quarter="4">1614712</sold>    
+        </vehicles>
+        <vehicles type="heavy">
+            <sold quarter="1">51124</sold>    
+            <sold quarter="2">52892</sold>    
+            <sold quarter="3">53992</sold>    
+            <sold quarter="4">59694</sold>    
+        </vehicles>
+    </source>
+</sales>

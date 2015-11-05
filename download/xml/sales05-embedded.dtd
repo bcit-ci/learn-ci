@@ -1,0 +1,61 @@
+<!--
+DTD for sales05-embedded.xml.
+The data is hierarchical, structured by country
+
+COMP4711 Fall 2011
+Lab solution
+-->
+
+<!-- The root element, will contain definitions for the countries
+and the vehicle types, then a multiple of source elements for
+sales data.
+The data comes from Industry Canada, and is for 2010.
+There could be more data, and past data, so it makes sense to constrain 
+the year attribute.
+ -->
+<!ELEMENT sales (countries,categories,source*)>
+<!ATTLIST sales
+    year (2009|2010|2011|2012) #REQUIRED
+  >
+
+<!-- The countries define the country codes allowed.
+We won't be able to constrain sales data to use these yet,
+but that will come down the road. -->
+<!ELEMENT countries (country)*>
+<!ELEMENT country (#PCDATA)>
+<!ATTLIST country
+    code    CDATA   #REQUIRED>
+
+<!-- The categories define the vehicle types allowed.
+We won't be able to constrain sales data to use these yet,
+but that will come down the road. -->
+<!ELEMENT categories (category)*>
+<!ELEMENT category (#PCDATA)>
+<!ATTLIST category
+    code    CDATA   #REQUIRED>
+
+<!--- A source element contains the sales data, by quarter,
+for a single country. 
+Note that we are not constraining the country code/value any longer -
+that is intended to come from programmatic validation later. -->
+<!ELEMENT source (vehicles)*>
+<!ATTLIST source
+    country CDATA #REQUIRED
+  >
+
+<!-- Each vehicles element contains the source data
+for a single vehicle type, and nested source elements,
+one for each of the countries in North America 
+Note that we are not constraining the vehicle type code/value any longer -
+that is intended to come from programmatic validation later. -->
+<!ELEMENT vehicles (sold)*>
+<!ATTLIST vehicles
+    type CDATA #REQUIRED
+  >
+
+<!--- A sold element contains the number of vehicles sold
+of a given type in a single country, during a specific quarter -->
+<!ELEMENT sold (#PCDATA)>
+<!ATTLIST sold
+    quarter (1|2|3|4) #REQUIRED
+  >

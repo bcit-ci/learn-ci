@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sales SYSTEM "sales05-quarter.dtd">
+
+<!--
+    Document   : sale.xml
+    Created on : September 28, 2011, 9:16 PM
+    Author     : Zein Sleiman
+    Description:
+        Purpose of the document follows.
+-->
+
+<sale>
+    <quarter number="1" year="2010">		
+        <country name="Canada">
+            <vehicle type="Car">
+                <car_sold>148111</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>178831</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>5867</car_sold>
+            </vehicle>
+        </country>
+        <country name="Mexico">
+            <vehicle type="Car">
+                <car_sold>114361</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>74033</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>5129</car_sold>
+            </vehicle>
+        </country>
+        <country name="U.S.">
+            <vehicle type="Car">
+                <car_sold>1282671</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>1255913</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>51124</car_sold>
+            </vehicle>
+        </country>
+    </quarter>
+    <quarter number="2" year="2010">
+        <country name="Canada">
+            <vehicle type="Car">
+                <car_sold>212570</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>245813</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>7462</car_sold>
+            </vehicle>
+        </country>
+        <country name="Mexico">
+            <vehicle type="Car">
+                <car_sold>110277</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>70960</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>7067</car_sold>
+            </vehicle>
+        </country>
+        <country name="U.S.">
+            <vehicle type="Car">
+                <car_sold>1542192</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>1520199</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>52892</car_sold>
+            </vehicle>
+        </country>
+    </quarter>
+    <quarter number="3" year="2010">
+        <country name="Canada">
+            <vehicle type="Car">
+                <car_sold>183850</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>235473</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>7343</car_sold>
+            </vehicle>
+        </country>
+        <country name="Mexico">
+            <vehicle type="Car">
+                <car_sold>119881</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>74835</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>7772</car_sold>
+            </vehicle>
+        </country>
+        <country name="U.S.">
+            <vehicle type="Car">
+                <car_sold>1468936</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>1528261</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>53992</car_sold>
+            </vehicle>
+        </country>
+    </quarter>
+    <quarter number ="4" year="2010">
+        <country name="Canada">
+            <vehicle type="Car">
+                <car_sold>149818</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>200234</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>8016</car_sold>
+            </vehicle>
+        </country>
+        <country name="Mexico">
+            <vehicle type="Car">
+                <car_sold>155048</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>99109</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>8409</car_sold>
+            </vehicle>
+        </country>
+        <country name="U.S.">
+            <vehicle type="Car">
+                <car_sold>1341634</car_sold>
+            </vehicle>
+            <vehicle type="Light Truck">
+                <car_sold>1614712</car_sold>
+            </vehicle>
+            <vehicle type="Med/Hvy. Truck">
+                <car_sold>59694</car_sold>
+            </vehicle>
+        </country>
+    </quarter>
+</sale>

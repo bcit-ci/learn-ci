@@ -1,0 +1,39 @@
+<!--
+DTD for sales05-vehicle.xml.
+The data is hierarchical, structured by vehicle type
+
+COMP4711 Fall 2011
+Lab solution
+-->
+
+<!-- The root element, which should contain multiple *vehicles* elements.
+The data comes from Industry Canada, and is for 2010.
+There could be more data, and past data, so it makes sense to constrain 
+the year attribute.
+ -->
+<!ELEMENT sales (vehicles)+>
+<!ATTLIST sales
+    year (2009|2010|2011|2012) #REQUIRED
+  >
+
+<!-- Each vehicles element contains the source data
+for a single vehicle type, and nested source elements,
+one for each of the countries in North America -->
+<!ELEMENT vehicles (source)*>
+<!ATTLIST vehicles
+    type (car|light|heavy) #REQUIRED
+  >
+
+<!--- A source element contains the sales data, by quarter,
+for a single country -->
+<!ELEMENT source (sold)*>
+<!ATTLIST source
+    country (canada|mexico|usa) #REQUIRED
+  >
+
+<!--- A sold element contains the number of vehicles sold
+of a given type in a single country, during a specific quarter -->
+<!ELEMENT sold (#PCDATA)>
+<!ATTLIST sold
+    quarter (1|2|3|4) #REQUIRED
+  >
