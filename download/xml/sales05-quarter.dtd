@@ -1,0 +1,39 @@
+<!--
+DTD for sales05-quarter.xml.
+The data is structured by vehicle type sales, within country, per quarter
+
+COMP4711 Fall 2011
+Lab solution
+-->
+
+<!-- The root element, which should contain quarter elements, one per
+quarter for a year.
+The data comes from Industry Canada, and is for 2010.
+There could be more data, and past data, so it makes sense to constrain 
+the year attribute.
+ -->
+<!ELEMENT sale (quarter)+>
+
+<!--- Each quarter is for a specific year, and contains multiple country elements,
+each of which will hold the sales data for a single country for that quarter. -->
+<!ELEMENT quarter (country)*>
+<!ATTLIST quarter
+    number  (1|2|3|4)   #REQUIRED
+    year    CDATA   #REQUIRED
+>
+
+<!-- Each country contains a number of vehicle elements, one per
+vehicle type. -->
+<!ELEMENT country (vehicle)*>
+<!ATTLIST country
+    name (Canada|Mexico|U.S.) #REQUIRED
+  >
+
+<!--- Each vehicle element contains the quarterly sales for a specific
+type of vehicle. 
+I have not changed the original XML, which means that we cannot constrain the 
+vehicle type with an enumerated list - the data contains spaces and slashes. -->
+<!ELEMENT vehicle (#PCDATA)>
+<!ATTLIST vehicle
+    type CDATA #REQUIRED
+  >
